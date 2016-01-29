@@ -32,5 +32,11 @@
   DV.loaded = true;
 
   /* Request the viewer JavaScript. */
-  document.write('<script type="text/javascript" src="<%= asset_root %>/viewer/viewer.js"></scr' + 'ipt>');
+  var script = document.createElement('script');
+  script.onload = function() {
+    // callback?
+  }
+  script.src = "<%= asset_root %>/viewer/viewer.js";
+  document.getElementsByTagName('head')[0].appendChild(script);
+
 })();
